@@ -366,6 +366,9 @@ export default {
           api.sendEvent({
             name: 'createTask'
           })
+          api.sendEvent({
+            name: 'changeTodoNum'
+          })
           api.closeWin()
         } catch (err) {
         }

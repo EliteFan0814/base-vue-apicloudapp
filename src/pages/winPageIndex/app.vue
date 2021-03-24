@@ -44,6 +44,7 @@ import request from '@/api/index'
 export default {
   data() {
     return {
+      timer: undefined,
       isGetting: true,
       isLogin: undefined,
       // db_user: {},
@@ -221,6 +222,10 @@ export default {
         that.active = res.value.index
       }
     )
+    clearInterval(this.timer)
+    this.timer = setInterval(() => {
+      this.getTodoInfo()
+    }, 1000 * 60)
   },
   methods: {
     // 检查是否登录

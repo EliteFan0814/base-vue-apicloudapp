@@ -109,17 +109,31 @@ export default {
       this.page = 1
       this.infiniteId += 1
     },
-    classList() {
-      classList().then((res) => {
-        let arr = res.value.data.map((item) => ({
+    async classList() {
+      try {
+        const classRes = await classList()
+        let arr = classRes.value.data.map((item) => ({
           text: item.className,
           value: item.id
         }))
         this.classId = arr[0]['value']
         this.dropdown = arr
-      })
+      } catch (err) {
+        console.log(err)
+      }
+      // classList().then((res) => {
+      //   let arr = res.value.data.map((item) => ({
+      //     text: item.className,
+      //     value: item.id
+      //   }))
+      //   this.classId = arr[0]['value']
+      //   this.dropdown = arr
+      // })
     },
     getData($state) {
+      if (this.page === 1) {
+        this.classList()
+      }
       if (this.classId) {
         const infinite = this.infiniteId
         if (infinite === this.infiniteId) {

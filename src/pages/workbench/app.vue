@@ -63,12 +63,12 @@ export default {
           img: require('@/static/image/workbench/make.png'),
           url: makeUpRecord
         },
-        {
-          name: '学费缴纳',
-          info: '管理学生缴费信息',
-          img: require('@/static/image/workbench/withdraw.png'),
-          url: tuitionPayment
-        }
+        // {
+        //   name: '学费缴纳',
+        //   info: '管理学生缴费信息',
+        //   img: require('@/static/image/workbench/withdraw.png'),
+        //   url: tuitionPayment
+        // }
       ]
     }
   },
